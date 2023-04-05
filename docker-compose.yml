@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  terraform:
+    build:
+      context: .
+      dockerfile: terraform.dockerfile
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_KEY
+      AWS_REGION: $REGION
+    volumes:
+      - .:/work
+    working_dir: /work
